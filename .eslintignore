@@ -1,0 +1,6 @@
+build/
+public/
+vendor/
+lib/
+web-modules/
+node_modules/

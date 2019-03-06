@@ -1,0 +1,58 @@
+# ide配置
+.vscode
+.idea
+.gradle
+.settings
+
+# 文件
+*.gif
+
+# 日志
+npm-debug.log
+
+# android
+gradlew
+gradlew.bat
+*.properties
+*.iml
+
+# Folder
+demo/
+docs/
+examples/
+src/
+
+# config file
+
+# babel
+.babelrc
+babel.config.js
+
+# EditorConfig
+.editorconfig
+
+# eslint
+.eslintignore
+.eslintrc.yml
+
+# husky
+.huskyrc
+
+# lint-staged
+.lintstagedrc
+
+# prettier
+.prettierrc
+
+# commitlint
+commitlint.config.js
+
+# vscode config
+jsconfig.json
+
+# typesscript
+tsconfig.json
+tslint.json
+
+# nodemon
+nodemon.json

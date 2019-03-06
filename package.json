@@ -1,0 +1,22 @@
+{
+  "name": "genfe-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaumuLu/genfe-cli.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TaumuLu/genfe-cli/issues"
+  },
+  "homepage": "https://github.com/TaumuLu/genfe-cli#readme",
+  "dependencies": {
+    "commander": "^2.19.0"
+  }
+}
