@@ -26,6 +26,7 @@ src/
 
 # babel
 .babelrc
+.babelrc.js
 babel.config.js
 
 # EditorConfig

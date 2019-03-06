@@ -22,7 +22,8 @@
 - prettier
   + .prettierrc
 - babel
-  + babelrc
+  + .babelrc
+  + .babel.js
   + babel.config.js
 - webpack
   + webpack.config.js
@@ -41,3 +42,9 @@
 - [ ] 基础代码，先完善目前定义的所有的配置
 - [ ] 优化配置，补充参考业内好的配置
 - [ ] 提供cli，可一键生成，或自定义
+
+## 参考项目
+- [create-react-app](https://github.com/facebook/create-react-app)
+- [vue-cli](https://github.com/vuejs/vue-cli)
+- [config-gen](https://github.com/cszatma/config-gen)
+- [generate-eslint](https://github.com/generate/generate-eslint)
