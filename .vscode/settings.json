@@ -1,0 +1,64 @@
+{
+  // setting
+  "editor.tabSize": 2,
+  "window.zoomLevel": 0,
+  "editor.wordWrap": "on",
+  "files.autoSave": "onFocusChange",
+  "editor.renderIndentGuides": true,
+  "search.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/.happypack": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/.next": true,
+    "**/static": true,
+    "**/android/app/build": true,
+    "*.map": true
+  },
+  "files.exclude": {
+    ".happypack": true
+  },
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?（，：；。？）",
+  // 文件后缀关联类型
+  "files.associations": {
+    "*.huskyrc": "json",
+    "*.lintstagedrc": "json"
+  },
+  // typescript
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  // "tslint.autoFixOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  },
+  // eslint
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "vue-html",
+      "autoFix": true
+    }
+    // {
+    //   "language": "typescript",
+    //   "autoFix": true
+    // },
+    // {
+    //   "language": "typescriptreact",
+    //   "autoFix": true
+    // }
+  ],
+  // prettier
+  "[css]": {
+    "editor.formatOnSave": true
+  },
+  // "[javascript]": {
+  //     "editor.formatOnSave": true
+  // }
+  "workbench.activityBar.visible": true
+}
