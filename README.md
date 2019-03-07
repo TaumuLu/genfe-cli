@@ -33,6 +33,11 @@
 - .editorconfig
 - .npmignore
 
+## IDE配置
+
+### vscode
+- .vscode
+
 ## 生成项目清单
 - react
 - react-native
@@ -42,6 +47,7 @@
 - [ ] 基础代码，先完善目前定义的所有的配置
 - [ ] 优化配置，补充参考业内好的配置
 - [ ] 提供cli，可一键生成，或自定义
+- [ ] 增加vscode配置
 
 ## 参考项目
 - [create-react-app](https://github.com/facebook/create-react-app)

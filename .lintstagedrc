@@ -5,8 +5,8 @@
   },
   "ignore": [
     "/node_modules/",
-    "/public/"
-    "/build/"
+    "/public/",
+    "/build/",
     "/dist/",
     "/docs/"
   ]
