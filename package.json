@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "tsc -w",
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf ./dist",
+    "prepublish": "npm run build",
+    "lint": "lint-staged"
+  },
+  "bin": {
+    "genfe": "cli/cli.js"
   },
   "repository": {
     "type": "git",
@@ -17,11 +24,13 @@
   },
   "homepage": "https://github.com/TaumuLu/genfe-cli#readme",
   "dependencies": {
-    "commander": "^2.19.0"
+    "commander": "^2.19.0",
+    "inquirer": "^6.2.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
+    "@types/node": "^11.11.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",

@@ -48,6 +48,7 @@
 - [ ] 优化配置，补充参考业内好的配置
 - [ ] 提供cli，可一键生成，或自定义
 - [ ] 增加vscode配置
+- [ ] 如何使用git merge的形式合并配置文件
 
 ## 参考项目
 - [create-react-app](https://github.com/facebook/create-react-app)

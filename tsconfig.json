@@ -16,6 +16,6 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"]
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "./interface/*"],
   "exclude": ["node_modules", "examples", "dist", "docs"]
 }
