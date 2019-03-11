@@ -32,6 +32,7 @@
 - jsconfig.json
 - .editorconfig
 - .npmignore
+- .npmrc
 
 ## IDE配置
 
