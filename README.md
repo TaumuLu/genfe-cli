@@ -44,6 +44,25 @@
 - react-native
 - vue
 
+## 使用git-merge-file命令合并文件
+三路文件合并  
+```
+usage: git merge-file [<options>] [-L <name1> [-L <orig> [-L <name2>]]] <file1> <orig-file> <file2>
+
+    -p, --stdout          send results to standard output
+    --diff3               use a diff3 based merge
+    --ours                for conflicts, use our version
+    --theirs              for conflicts, use their version
+    --union               for conflicts, use a union version
+    --marker-size <n>     for conflicts, use this marker size
+    -q, --quiet           do not warn about conflicts
+    -L <name>             set labels for file1/orig-file/file2
+```
+
+规则为合并file1、file2到file1文件中，file1、file2以orig-file为原始文件，这里可以给一个空文件  
+file1指定为用户目录下的文件，file2指定项目中要merge的文件，orig-file为lib下的空文件  
+调用bash命令执行合并  
+
 ## TODO
 - [ ] 基础代码，先完善目前定义的所有的配置
 - [ ] 优化配置，补充参考业内好的配置

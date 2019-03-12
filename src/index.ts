@@ -15,8 +15,9 @@ program
   .command('react')
   .alias('r')
   .description('Create React App')
-  .action(() => {
-    console.log(11111);
+  .option('-t --temp [mode]', 'Add server development configuration')
+  .action(options => {
+    console.log(options.temp, 11111);
   });
 
 // react-native
