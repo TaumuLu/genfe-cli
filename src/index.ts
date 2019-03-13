@@ -1,21 +1,21 @@
-import commander from 'commander';
+import Commander from 'commander';
 import packageJson from '../package.json';
-import config from './config';
+import Generate from './generate';
 
-const program = commander
-  .version(packageJson.version)
+const program = Commander.version(packageJson.version)
   .description('Quickly create front-end projects and configurations')
   .allowUnknownOption()
-  .option('-s --server', 'Add server development configuration')
-  .option('-n --npm', 'Add npm configuration')
-  .option('-c --custom', 'Custom generate configuration');
+  .option('-a --all', 'Add all configuration')
+  .option('-c --custom', 'Custom generate configuration')
+  .option('-t --typescript', 'Add typescript configuration')
+  .option('-b --babel <filename>', 'babel name', 'babel.config.js');
 
 // react
 program
   .command('react')
   .alias('r')
   .description('Create React App')
-  .option('-t --temp [mode]', 'Add server development configuration')
+  .option('-m --mode [mode]', 'Add server development configuration', 'redux')
   .action(options => {
     console.log(options.temp, 11111);
   });
@@ -25,8 +25,8 @@ program
   .command('react-native')
   .alias('rn')
   .description('Create React Native App')
-  .action(() => {
-    console.log(22222);
+  .action(options => {
+    console.log(options.tent, 22222);
   });
 
 // help
@@ -38,10 +38,4 @@ Examples:
   `);
 });
 
-program.parse(process.argv);
-
-if (!process.argv.slice(2).length) {
-  program.help();
-}
-
-config(program);
+new Generate(program).parse().run();

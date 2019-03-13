@@ -63,6 +63,11 @@ usage: git merge-file [<options>] [-L <name1> [-L <orig> [-L <name2>]]] <file1> 
 file1指定为用户目录下的文件，file2指定项目中要merge的文件，orig-file为lib下的空文件  
 调用bash命令执行合并  
 
+### 使用/dev/null代替空文件
+```
+git merge-file file1 /dev/null file2
+```
+
 ## TODO
 - [ ] 基础代码，先完善目前定义的所有的配置
 - [ ] 优化配置，补充参考业内好的配置

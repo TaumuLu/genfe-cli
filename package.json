@@ -11,7 +11,7 @@
     "lint": "lint-staged"
   },
   "bin": {
-    "genfe": "cli/cli.js"
+    "genfe": "bin/cli.js"
   },
   "repository": {
     "type": "git",
