@@ -38,4 +38,6 @@ Examples:
   `);
 });
 
-new Generate(program).parse().run();
+new Generate(program)
+  .parse()
+  .run();
