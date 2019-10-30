@@ -1,8 +1,7 @@
-
 {
   "extends": ["tslint:latest", "tslint-react"],
   "linterOptions": {
-    "exclude": ["node_modules", "examples", "dist", "docs"]
+    "exclude": ["node_modules", "examples", "dist", "build", "docs"]
   },
   "rules": {
     // 定义函数时如果用到了覆写，则必须将覆写的函数写到一起
@@ -471,6 +470,6 @@
     "no-non-null-assertion": false,
     "array-type": [true, "array"],
     "interface-name": false,
-    "semicolon": [true, "always", "ignore-bound-class-methods"]
+    "semicolon": [true, "never"]
   }
 }

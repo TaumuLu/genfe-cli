@@ -1,6 +1,5 @@
-build/
-public/
-vendor/
 lib/
-web-modules/
+public/
+build/
+dist/
 node_modules/

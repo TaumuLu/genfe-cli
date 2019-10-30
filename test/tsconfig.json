@@ -15,7 +15,7 @@
     "noImplicitReturns": true,
     "esModuleInterop": true,
     "downlevelIteration": true,
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom1"]
   },
   "include": ["./src/**/*", "./interface/*"],
   "exclude": ["node_modules", "examples", "docs", "lib", "build", "dist"]

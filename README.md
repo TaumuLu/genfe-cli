@@ -5,13 +5,11 @@
 要可以同步本地已有配置，保留自定义改动  
 可以选择性的生成某个配置
 
-## 生成配置清单
+## 配置清单
 
-- eslint
-  - .eslintignore
-  - .eslintrc.yml
 - typescript
   - tsconfig.json
+- tslint
   - tslint.json
 - husky
   - .huskyrc
@@ -19,39 +17,36 @@
   - .lintstagedrc
 - commitlint
   - commitlint.config.js
-- nodemon
-  - nodemon.json
 - prettier
   - .prettierrc
+- eslint
+  - .eslintignore
+  - .eslintrc.yml
+- nodemon
+  - nodemon.json
 - babel
-  - .babelrc
-  - .babel.js
-  - babel.config.js
-- webpack
-  - webpack.config.js
+  - babel.config.js (.babelrc, .babel.js)
 
-### 其他类型配置文件
+### npm 配置
 
-- jsconfig.json
-- .editorconfig
 - .npmignore
 - .npmrc
 
-## IDE 配置
-
-### vscode
+### vscode 配置
 
 - .vscode
+- jsconfig.json
+- .editorconfig
 
-## 生成项目清单
+## 项目清单
 
 - react
 - react-native
 - vue
 
-## 使用 git-merge-file 命令合并文件
+## 合并方式
 
-三路文件合并
+使用 git-merge-file 三路文件合并命令合并文件
 
 ```
 usage: git merge-file [<options>] [-L <name1> [-L <orig> [-L <name2>]]] <file1> <orig-file> <file2>
@@ -70,7 +65,9 @@ usage: git merge-file [<options>] [-L <name1> [-L <orig> [-L <name2>]]] <file1> 
 file1 指定为用户目录下的文件，file2 指定项目中要 merge 的文件，orig-file 为 lib 下的空文件  
 调用 bash 命令执行合并
 
-### 使用/dev/null 代替空文件
+### 合并命令
+
+使用/dev/null 代替空文件
 
 ```
 git merge-file file1 /dev/null file2
