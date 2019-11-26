@@ -1,6 +1,6 @@
-import { ConfigType, IConfigs, IDictionary } from './types'
+import { ConfigType } from './types'
 
-const configs = {
+export default  {
   typescript: {
     default: true,
     assets: ['tsconfig.json'],
@@ -79,5 +79,3 @@ const configs = {
     assets: ['.npmignore'],
   }
 }
-
-export default configs

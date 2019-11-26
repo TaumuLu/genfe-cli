@@ -12,10 +12,13 @@ const program = new Commander.Command()
   .description('Quickly create front-end projects and configurations')
   .allowUnknownOption()
   .arguments('[project-directory]')
-  .option('-b --babel <items>', 'babel name', 'babel.config.js')
+  .option('-d, --default', 'create default config')
+  .option('-a, --all', 'create all config')
   .action((dir) => {
     generate.setDir(dir)
     const { assets, devDependencies } = configs.typescript
+    // const { assets, devDependencies } = configs.husky
+    // generate.addFiles(configs.husky.assets)
     generate.addFiles(assets)
     generate.addDepends(devDependencies)
   })
@@ -50,7 +53,6 @@ const program = new Commander.Command()
 // })
 
 program.parse(process.argv)
-
 
 generate.run()
 

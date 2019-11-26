@@ -90,4 +90,4 @@ git merge-file file1 /dev/null file2
 
 ## 参考文档
 
-- [git](http://www.php.cn/manual/view/35029.html)
+- [git](https://www.php.cn/manual/view/35026.html)

@@ -1,11 +1,13 @@
 import { execSync } from 'child_process'
-import { copyFileSync, existsSync, mkdirSync, statSync } from 'fs'
+import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync } from 'fs'
 import path from 'path'
+import { conflictReg, labelNames } from './constant'
 
 export default class Generate {
   cwd = process.cwd()
-  cliDir = path.resolve(__dirname, '../')
   dir: string = this.cwd
+  cliDir = path.resolve(__dirname, '../')
+  packagePath: string = ''
   dependencies: Set<string> = new Set<string>()
   devDependencies: Set<string> = new Set<string>()
   files: Set<string> = new Set<string>()
@@ -13,6 +15,7 @@ export default class Generate {
 
   setDir(dir: string = './') {
     this.dir = path.resolve(dir)
+    this.packagePath = path.resolve(this.dir, 'package.json')
   }
 
   addDepend(value: string, isDev: boolean = true) {
@@ -43,11 +46,18 @@ export default class Generate {
     })
   }
 
-  async exec(command: string) {
-    const { cwd } = this
-    console.log(`exec command: ${command}`)
-    console.log(11111, cwd)
-    return execSync(command, { cwd })
+  async exec(command: string, throwError = false) {
+    const cwd = this.dir
+    let stdout: Buffer
+    try {
+      console.log(`exec command: ${command}`, cwd)
+      stdout = execSync(command, { cwd })
+    } catch (error) {
+      if (throwError) {
+        throw error
+      }
+    }
+    return stdout
   }
 
   async run() {
@@ -56,18 +66,14 @@ export default class Generate {
     } else if (!statSync(this.dir).isDirectory()) {
       throw new Error(`${this.dir}`)
     }
-    await this.genFolder()
+    // await this.genFolder()
     await this.genFile()
-    // await this.install()
+    await this.install()
   }
 
   async genFolder() {
     // if (this.folder) {
     // }
-  }
-
-  checkPath(filePath) {
-
   }
 
   async genFile() {
@@ -80,7 +86,7 @@ export default class Generate {
         if (existsSync(targetPath)) {
           await this.mergeFile(targetPath, sourcePath)
         } else {
-          await this.copyFile(targetPath, sourcePath)
+          await copyFileSync(sourcePath, targetPath)
         }
       }
     }
@@ -88,20 +94,27 @@ export default class Generate {
 
   async install() {
     const { dependencies, devDependencies } = this
-
+    if (!existsSync(this.packagePath)) {
+      this.exec('npm init -y')
+    }
     if (dependencies.size) {
       this.exec(`npm i ${[...dependencies].join(' ')}`)
     }
-    if (devDependencies) {
+    if (devDependencies.size) {
       this.exec(`npm i ${[...devDependencies].join(' ')} -D`)
     }
   }
 
-  copyFile(targetPath, sourcePath) {
-    copyFileSync(sourcePath, targetPath)
-  }
-
   async mergeFile(targetPath, mergePath) {
-    return this.exec(`git merge-file -L current-config -L null -L cli-config ${targetPath} /dev/null ${mergePath}`).catch(() => {})
+    const [currentName, cliName] = labelNames
+    const code = readFileSync(targetPath, 'utf-8')
+    // const value = await this.exec('git diff --check | cat')
+
+    if (conflictReg.test(code)) {
+      console.log(`fail: conflict file ${targetPath}`)
+      return null
+    } else {
+      return this.exec(`git merge-file -L ${currentName} -L null -L ${cliName} ${targetPath} /dev/null ${mergePath}`)
+    }
   }
 }
