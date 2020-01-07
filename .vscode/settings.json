@@ -56,13 +56,13 @@
   },
   "typescript.updateImportsOnFileMove.enabled": "never",
   "javascript.updateImportsOnFileMove.enabled": "never",
-  "javascript.implicitProjectConfig.experimentalDecorators": true,
-  "[json]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[jsonc]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "vscode.json-language-features"
-  }
+  "javascript.implicitProjectConfig.experimentalDecorators": true
+  // "[json]": {
+  //   "editor.formatOnSave": true,
+  //   "editor.defaultFormatter": "vscode.json-language-features"
+  // },
+  // "[jsonc]": {
+  //   "editor.formatOnSave": true,
+  //   "editor.defaultFormatter": "vscode.json-language-features"
+  // }
 }

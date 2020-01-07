@@ -9,7 +9,7 @@
     "clean": "rm -rf ./lib",
     "prepublish": "npm run build",
     "lint": "lint-staged",
-    "clean:test": "rm `ls -aF ./test | egrep -v '(package.json|/$)' | sed 's/^/./test//g'`"
+    "clean:test": "rm -f `ls -aF ./test | egrep -v '(package.json|/$)' | sed 's/^/.\\/test\\//g'`"
   },
   "bin": {
     "genfe": "bin/cli.js"

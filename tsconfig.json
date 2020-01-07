@@ -17,6 +17,9 @@
     "downlevelIteration": true,
     "lib": ["esnext", "dom"]
   },
-  "include": ["./src/**/*", "./interface/*"],
+  // "include": [
+  //   "./src/**/*",
+  //   "./interface/*"
+  // ],
   "exclude": ["node_modules", "examples", "docs", "lib", "build", "dist"]
 }
