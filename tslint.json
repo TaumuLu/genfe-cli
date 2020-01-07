@@ -86,7 +86,6 @@
     // 函数覆写时，若能通过联合类型将两个函数的类型声明合为一个，则使用联合类型而不是两个函数声明
     // @off 太严格了
     "unified-signatures": false,
-
     // 功能性检查
     // 这些规则可以找出可能的错误，或者是会产生 bug 的编码习惯
     //
@@ -236,7 +235,6 @@
     "use-default-type-parameter": false,
     // 必须使用 isNaN(foo) 而不是 foo === NaN
     "use-isnan": true,
-
     //
     // 可维护性
     // 这些规则可以增加代码的可维护性
@@ -435,7 +433,6 @@
     ],
     "jsx-no-lambda": false,
     "jsx-no-multiline-js": false,
-
     // 其他规则
     "no-constant-condition": true,
     "ter-indent": [
@@ -462,7 +459,6 @@
         "flatTernaryExpressions": false
       }
     ],
-
     "prefer-conditional-expression": false,
     "one-variable-per-declaration": false,
     "ordered-imports": true,

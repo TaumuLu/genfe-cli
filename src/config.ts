@@ -1,6 +1,6 @@
 import { ConfigType } from './types'
 
-export default  {
+const configs = {
   typescript: {
     default: true,
     assets: ['tsconfig.json'],
@@ -58,6 +58,9 @@ export default  {
       '@babel/plugin-transform-runtime'
     ]
   },
+  browserslist: {
+    assets: ['.browserslistrc']
+  },
   settings: {
     type: ConfigType.Vscode,
     assets: ['.vscode/settings.json'],
@@ -79,3 +82,7 @@ export default  {
     assets: ['.npmignore'],
   }
 }
+
+export default configs
+
+export const defaultKeys = Object.keys(configs).reduce((p, k) => configs[k].default ? p.concat(k) : p, [])

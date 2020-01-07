@@ -1,6 +1,7 @@
 import Commander from 'commander'
+import inquirer from 'inquirer'
 import packageJson from '../package.json'
-import configs from './config'
+import configs, { defaultKeys } from './config'
 import Generate from './generate'
 
 const generate = new Generate()
@@ -8,19 +9,41 @@ const generate = new Generate()
 const program = new Commander.Command()
   .name(packageJson.name)
   .version(packageJson.version)
-  .usage('[options]')
+  .usage('[options] command')
   .description('Quickly create front-end projects and configurations')
   .allowUnknownOption()
   .arguments('[project-directory]')
   .option('-d, --default', 'create default config')
-  .option('-a, --all', 'create all config')
-  .action((dir) => {
+  .action(async (dir, cmdObj) => {
     generate.setDir(dir)
-    const { assets, devDependencies } = configs.typescript
-    // const { assets, devDependencies } = configs.husky
-    // generate.addFiles(configs.husky.assets)
-    generate.addFiles(assets)
-    generate.addDepends(devDependencies)
+    let selectModules = defaultKeys
+    if (!cmdObj.default) {
+      const choices = Object.keys(configs).map((name) => {
+        const { default: checked } = configs[name]
+        return {
+          name,
+          checked
+        }
+      })
+      const questions = [{
+        name: 'modules',
+        message: 'select generate modules',
+        type: 'checkbox',
+        choices,
+        pageSize: process.stdout.rows - 2
+      }]
+      const values = await inquirer.prompt(questions)
+      const { modules } = values
+      selectModules = modules as any
+    }
+
+    selectModules.forEach((key) => {
+      const { assets = [], devDependencies = [] } = configs[key]
+      generate.addFiles(assets)
+      generate.addDepends(devDependencies)
+    })
+
+    generate.run()
   })
 
 // react
@@ -53,8 +76,6 @@ const program = new Commander.Command()
 // })
 
 program.parse(process.argv)
-
-generate.run()
 
 // if (!process.argv.slice(2).length) {
 //   program.help()

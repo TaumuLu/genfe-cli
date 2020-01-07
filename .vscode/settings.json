@@ -1,65 +1,68 @@
 {
-  // setting
-  "editor.tabSize": 2,
+  // workspace setting
   "window.zoomLevel": 0,
+  "editor.tabSize": 2,
   "editor.wordWrap": "on",
-  "files.autoSave": "onFocusChange",
   "editor.renderIndentGuides": true,
+  "editor.minimap.showSlider": "always",
+  "editor.suggestSelection": "first",
+  "editor.minimap.enabled": true,
+  "editor.renderWhitespace": "none",
+  "editor.renderControlCharacters": false,
+  "editor.renderLineHighlight": "all",
+  "editor.multiCursorModifier": "alt",
+  "editor.snippetSuggestions": "top",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?（，：；。？）",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.tslint": true,
+    "source.fixAll.eslint": true
+  },
+  "workbench.activityBar.visible": true,
+  "problems.decorations.enabled": true,
+  "explorer.confirmDelete": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "breadcrumbs.enabled": true,
+  "terminal.integrated.macOptionIsMeta": true,
+  "emmet.showSuggestionsAsSnippets": true,
   "search.exclude": {
     "**/.git": true,
     "**/node_modules": true,
     "**/.happypack": true,
-    "**/lib": true,
     "**/build": true,
     "**/dist": true,
     "**/.next": true,
     "**/static": true,
     "**/android/app/build": true,
-    "*.map": true
+    "*.map": true,
+    "**/__tests__": true
   },
+  "files.autoSave": "onFocusChange",
   "files.exclude": {
-    ".happypack": true
+    ".happypack": true,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
   },
-  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?（，：；。？）",
-  // 文件后缀关联类型
   "files.associations": {
     "*.huskyrc": "json",
     "*.lintstagedrc": "json"
   },
-  // typescript
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "javascript.updateImportsOnFileMove.enabled": "never",
   "javascript.implicitProjectConfig.experimentalDecorators": true,
-  // "tslint.autoFixOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
-  // eslint
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    {
-      "language": "vue",
-      "autoFix": true
-    },
-    {
-      "language": "vue-html",
-      "autoFix": true
-    }
-    // {
-    //   "language": "typescript",
-    //   "autoFix": true
-    // },
-    // {
-    //   "language": "typescriptreact",
-    //   "autoFix": true
-    // }
-  ],
-  // prettier
-  "[css]": {
-    "editor.formatOnSave": true
-  },
-  // "[javascript]": {
-  //     "editor.formatOnSave": true
-  // }
-  "workbench.activityBar.visible": true
+  "[jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }

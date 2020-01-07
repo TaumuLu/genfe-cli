@@ -7,32 +7,53 @@
 
 ## 配置清单
 
-- typescript
-  - tsconfig.json
-- tslint
-  - tslint.json
-- husky
-  - .huskyrc
-- lint-staged
-  - .lintstagedrc
-- commitlint
-  - commitlint.config.js
-- prettier
-  - .prettierrc
-- eslint
-  - .eslintignore
-  - .eslintrc.yml
-- nodemon
-  - nodemon.json
-- babel
-  - babel.config.js (.babelrc, .babel.js)
+### typescript
 
-### npm 配置
+- tsconfig.json
+
+### tslint
+
+- tslint.json
+
+### husky
+
+- .huskyrc
+
+### lint-staged
+
+- .lintstagedrc
+
+### commitlint
+
+- commitlint.config.js
+
+### prettier
+
+- .prettierrc
+
+### eslint
+
+- .eslintignore
+- .eslintrc.yml
+
+### nodemon
+
+- nodemon.json
+
+### babel
+
+- babel.config.js (.babelrc, .babel.js)
+
+### browserslist
+
+- .browserslistrc
+
+### npm
 
 - .npmignore
 - .npmrc
 
-### vscode 配置
+### vscode
 
 - .vscode
 - jsconfig.json
@@ -75,11 +96,13 @@ git merge-file file1 /dev/null file2
 
 ## TODO
 
-- [ ] 基础代码，先完善目前定义的所有的配置
+- [x] 基础代码，先完善目前定义的所有的配置
+- [x] 提供 cli，可一键生成，或自定义
+- [x] 增加 vscode 配置
+- [x] 如何使用 git merge 的形式合并配置文件
+- [ ] 支持写入 package 里的配置
 - [ ] 优化配置，补充参考业内好的配置
-- [ ] 提供 cli，可一键生成，或自定义
-- [ ] 增加 vscode 配置
-- [ ] 如何使用 git merge 的形式合并配置文件
+- [ ] 考虑如何生成项目模板代码
 
 ## 参考项目
 

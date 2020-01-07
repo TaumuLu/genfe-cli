@@ -50,7 +50,7 @@ export default class Generate {
     const cwd = this.dir
     let stdout: Buffer
     try {
-      console.log(`exec command: ${command}`, cwd)
+      console.log(`exec command: ${command}`)
       stdout = execSync(command, { cwd })
     } catch (error) {
       if (throwError) {
