@@ -41,6 +41,7 @@ const configs = {
       'eslint-plugin-import',
       'eslint-plugin-jsx-a11y',
       'eslint-plugin-react',
+      'eslint-plugin-react-hooks',
     ],
   },
   nodemon: {
@@ -50,6 +51,7 @@ const configs = {
   babel: {
     assets: ['babel.config.js'],
     devDependencies: [
+      '@babel/core',
       '@babel/preset-env',
       '@babel/preset-react',
       '@babel/preset-typescript',

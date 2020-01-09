@@ -7,9 +7,9 @@
     "watch": "tsc -w",
     "build": "npm run clean && tsc",
     "clean": "rm -rf ./lib",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "lint": "lint-staged",
-    "clean:test": "rm -f `ls -aF ./test | egrep -v '(package.json|/$)' | sed 's/^/.\\/test\\//g'`"
+    "clean:test": "rm -rf `ls -aF ./test | egrep -v '(package.json|node_modules|\\.+/)' | sed 's/^/.\\/test\\//g'`"
   },
   "bin": {
     "genfe": "bin/cli.js"
@@ -27,26 +27,20 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "commander": "^4.1.0",
-    "inquirer": "^7.0.3"
+    "execa": "^4.0.0",
+    "inquirer": "^7.0.3",
+    "ora": "^4.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
     "@types/inquirer": "^6.5.0",
-    "@types/node": "^13.1.4",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.17.0",
-    "husky": "^4.0.0",
+    "@types/node": "^13.1.5",
+    "husky": "^4.0.3",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "tslint": "^5.20.1",
     "tslint-react": "^4.1.0",
-    "typescript": "^3.7.4",
-    "webpack": "^4.41.5"
+    "typescript": "^3.7.4"
   }
 }

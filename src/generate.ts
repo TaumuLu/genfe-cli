@@ -1,4 +1,5 @@
-import { execSync } from 'child_process'
+import chalk from 'chalk'
+import execa from 'execa'
 import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync } from 'fs'
 import path from 'path'
 import { conflictReg, labelNames } from './constant'
@@ -46,18 +47,15 @@ export default class Generate {
     })
   }
 
-  async exec(command: string, throwError = false) {
+  async exec(command: string) {
     const cwd = this.dir
-    let stdout: Buffer
-    try {
-      console.log(`exec command: ${command}`)
-      stdout = execSync(command, { cwd })
-    } catch (error) {
-      if (throwError) {
-        throw error
-      }
-    }
-    return stdout
+    const [file, ...args] = command.split(' ')
+    // console.log(`exec command: ${command}`)
+    return execa(file, args, { cwd }).then((output) => {
+      console.log(output.stdout)
+      console.log(output.stderr)
+      return output
+    })
   }
 
   async run() {
@@ -76,6 +74,17 @@ export default class Generate {
     // }
   }
 
+  async checkPath(pathStr: string, mkPath?: boolean) {
+    const index = pathStr.lastIndexOf('/')
+    const parentPath = pathStr.slice(0, index)
+    if (!existsSync(parentPath)) {
+      return this.checkPath(parentPath, true)
+    }
+    if (mkPath) {
+      return mkdirSync(pathStr)
+    }
+  }
+
   async genFile() {
     const { files } = this
 
@@ -86,6 +95,7 @@ export default class Generate {
         if (existsSync(targetPath)) {
           await this.mergeFile(targetPath, sourcePath)
         } else {
+          await this.checkPath(targetPath)
           await copyFileSync(sourcePath, targetPath)
         }
       }
@@ -94,9 +104,9 @@ export default class Generate {
 
   async install() {
     const { dependencies, devDependencies } = this
-    if (!existsSync(this.packagePath)) {
-      this.exec('npm init -y')
-    }
+    // if (!existsSync(this.packagePath)) {
+    //   this.exec('npm init -y')
+    // }
     if (dependencies.size) {
       this.exec(`npm i ${[...dependencies].join(' ')}`)
     }
@@ -111,7 +121,11 @@ export default class Generate {
     // const value = await this.exec('git diff --check | cat')
 
     if (conflictReg.test(code)) {
-      console.log(`fail: conflict file ${targetPath}`)
+      console.log(
+        chalk.red('Merge config fail:'),
+        chalk.gray('conflict file'),
+        targetPath
+      )
       return null
     } else {
       return this.exec(`git merge-file -L ${currentName} -L null -L ${cliName} ${targetPath} /dev/null ${mergePath}`)

@@ -53,7 +53,6 @@ const program = new Commander.Command()
 //   .description('Create React App')
 //   .option('-m --mode [mode]', 'Add server development configuration', 'redux')
 //   .action(options => {
-//     console.log(options.mode, 11111)
 //   })
 
 // // react-native
@@ -62,7 +61,6 @@ const program = new Commander.Command()
 //   .alias('rn')
 //   .description('Create React Native App')
 //   .action(options => {
-//     console.log(options.tent, 22222)
 //   })
 
 // help
