@@ -11,10 +11,6 @@
 
 - tsconfig.json
 
-### tslint
-
-- tslint.json
-
 ### husky
 
 - .huskyrc

@@ -6,20 +6,27 @@ import { conflictReg, labelNames } from './constant'
 
 export default class Generate {
   cwd = process.cwd()
+
   dir: string = this.cwd
+
   cliDir = path.resolve(__dirname, '../')
-  packagePath: string = ''
+
+  packagePath = ''
+
   dependencies: Set<string> = new Set<string>()
+
   devDependencies: Set<string> = new Set<string>()
+
   files: Set<string> = new Set<string>()
+
   folder: string
 
-  setDir(dir: string = './') {
+  setDir(dir = './') {
     this.dir = path.resolve(dir)
     this.packagePath = path.resolve(this.dir, 'package.json')
   }
 
-  addDepend(value: string, isDev: boolean = true) {
+  addDepend(value: string, isDev = true) {
     if (isDev) {
       this.devDependencies.add(value)
     } else {
@@ -28,7 +35,7 @@ export default class Generate {
   }
 
   addDepends = (values: string[], isDev?: boolean) => {
-    values.forEach((value) => {
+    values.forEach(value => {
       this.addDepend(value, isDev)
     })
   }
@@ -42,7 +49,7 @@ export default class Generate {
   }
 
   addFiles = (files: string[]) => {
-    files.forEach((file) => {
+    files.forEach(file => {
       this.addFile(file)
     })
   }
@@ -51,7 +58,7 @@ export default class Generate {
     const cwd = this.dir
     const [file, ...args] = command.split(' ')
     // console.log(`exec command: ${command}`)
-    return execa(file, args, { cwd }).then((output) => {
+    return execa(file, args, { cwd }).then(output => {
       console.log(output.stdout)
       console.log(output.stderr)
       return output
@@ -69,10 +76,10 @@ export default class Generate {
     await this.install()
   }
 
-  async genFolder() {
-    // if (this.folder) {
-    // }
-  }
+  // async genFolder() {
+  //   if (this.folder) {
+  //   }
+  // }
 
   async checkPath(pathStr: string, mkPath?: boolean) {
     const index = pathStr.lastIndexOf('/')
@@ -83,6 +90,7 @@ export default class Generate {
     if (mkPath) {
       return mkdirSync(pathStr)
     }
+    return null
   }
 
   async genFile() {
@@ -127,8 +135,9 @@ export default class Generate {
         targetPath
       )
       return null
-    } else {
-      return this.exec(`git merge-file -L ${currentName} -L null -L ${cliName} ${targetPath} /dev/null ${mergePath}`)
     }
+    return this.exec(
+      `git merge-file -L ${currentName} -L null -L ${cliName} ${targetPath} /dev/null ${mergePath}`
+    )
   }
 }

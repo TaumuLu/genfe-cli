@@ -20,7 +20,6 @@
   "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?（，：；。？）",
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
-    "source.fixAll.tslint": true,
     "source.fixAll.eslint": true
   },
   "workbench.activityBar.visible": true,
@@ -56,13 +55,14 @@
   },
   "typescript.updateImportsOnFileMove.enabled": "never",
   "javascript.updateImportsOnFileMove.enabled": "never",
-  "javascript.implicitProjectConfig.experimentalDecorators": true
-  // "[json]": {
-  //   "editor.formatOnSave": true,
-  //   "editor.defaultFormatter": "vscode.json-language-features"
-  // },
-  // "[jsonc]": {
-  //   "editor.formatOnSave": true,
-  //   "editor.defaultFormatter": "vscode.json-language-features"
-  // }
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  // PLUGIN
+  // eslint
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ]
 }

@@ -18,26 +18,28 @@ const program = new Commander.Command()
     generate.setDir(dir)
     let selectModules = defaultKeys
     if (!cmdObj.default) {
-      const choices = Object.keys(configs).map((name) => {
+      const choices = Object.keys(configs).map(name => {
         const { default: checked } = configs[name]
         return {
           name,
-          checked
+          checked,
         }
       })
-      const questions = [{
-        name: 'modules',
-        message: 'select generate modules',
-        type: 'checkbox',
-        choices,
-        pageSize: process.stdout.rows - 2
-      }]
+      const questions = [
+        {
+          name: 'modules',
+          message: 'select generate modules',
+          type: 'checkbox',
+          choices,
+          pageSize: process.stdout.rows - 2,
+        },
+      ]
       const values = await inquirer.prompt(questions)
       const { modules } = values
       selectModules = modules as any
     }
 
-    selectModules.forEach((key) => {
+    selectModules.forEach(key => {
       const { assets = [], devDependencies = [] } = configs[key]
       generate.addFiles(assets)
       generate.addDepends(devDependencies)

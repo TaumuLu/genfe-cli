@@ -21,6 +21,7 @@ demo/
 docs/
 examples/
 src/
+backup/
 
 # config file
 
@@ -53,7 +54,6 @@ jsconfig.json
 
 # typesscript
 tsconfig.json
-tslint.json
 
 # nodemon
 nodemon.json

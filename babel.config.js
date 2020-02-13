@@ -1,5 +1,5 @@
-module.exports = (api) => {
-  api.cache(true);
+module.exports = api => {
+  api.cache(true)
 
   return {
     // babelrc: false,
@@ -15,5 +15,5 @@ module.exports = (api) => {
       // '@babel/plugin-syntax-dynamic-import',
       '@babel/plugin-transform-runtime',
     ],
-  };
-};
+  }
+}

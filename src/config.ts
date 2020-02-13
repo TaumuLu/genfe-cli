@@ -6,11 +6,6 @@ const configs = {
     assets: ['tsconfig.json'],
     devDependencies: ['typescript'],
   },
-  tslint: {
-    default: true,
-    assets: ['tslint.json'],
-    devDependencies: ['tslint', 'tslint-react'],
-  },
   husky: {
     default: true,
     assets: ['.huskyrc'],
@@ -32,7 +27,7 @@ const configs = {
     devDependencies: ['prettier'],
   },
   eslint: {
-    assets: ['.eslintrc.yml', '.eslintignore'],
+    assets: ['.eslintrc.js', '.eslintignore'],
     devDependencies: [
       'eslint',
       'babel-eslint',
@@ -42,6 +37,9 @@ const configs = {
       'eslint-plugin-jsx-a11y',
       'eslint-plugin-react',
       'eslint-plugin-react-hooks',
+      'eslint-plugin-prettier',
+      '@typescript-eslint/eslint-plugin',
+      '@typescript-eslint/parser',
     ],
   },
   nodemon: {
@@ -57,11 +55,11 @@ const configs = {
       '@babel/preset-typescript',
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-decorators',
-      '@babel/plugin-transform-runtime'
-    ]
+      '@babel/plugin-transform-runtime',
+    ],
   },
   browserslist: {
-    assets: ['.browserslistrc']
+    assets: ['.browserslistrc'],
   },
   settings: {
     type: ConfigType.Vscode,
@@ -77,14 +75,17 @@ const configs = {
   },
   npmrc: {
     type: ConfigType.Npm,
-    assets: ['.npmrc']
+    assets: ['.npmrc'],
   },
   npmignore: {
     type: ConfigType.Npm,
     assets: ['.npmignore'],
-  }
+  },
 }
 
 export default configs
 
-export const defaultKeys = Object.keys(configs).reduce((p, k) => configs[k].default ? p.concat(k) : p, [])
+export const defaultKeys = Object.keys(configs).reduce(
+  (p, k) => (configs[k].default ? p.concat(k) : p),
+  []
+)
