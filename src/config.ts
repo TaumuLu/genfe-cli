@@ -27,6 +27,7 @@ const configs = {
     devDependencies: ['prettier'],
   },
   eslint: {
+    default: true,
     assets: ['.eslintrc.js', '.eslintignore'],
     devDependencies: [
       'eslint',
