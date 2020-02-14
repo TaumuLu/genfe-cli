@@ -18,3 +18,5 @@ src/
 backup/
 test/
 interface/
+
+!config/*
