@@ -1,7 +1,7 @@
 {
   "name": "genfe-cli",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Front end code generation scaffold",
   "main": "index.js",
   "scripts": {
     "watch": "tsc -w",
@@ -11,9 +11,7 @@
     "lint": "lint-staged",
     "clean:test": "rm -rf `ls -aF ./test | egrep -v '(package.json|node_modules|\\.+/)' | sed 's/^/.\\/test\\//g'`"
   },
-  "bin": {
-    "genfe": "bin/cli.js"
-  },
+  "bin": "bin/cli.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TaumuLu/genfe-cli.git"

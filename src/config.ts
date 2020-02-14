@@ -76,11 +76,11 @@ const configs = {
   },
   npmrc: {
     type: ConfigType.Npm,
-    assets: ['.npmrc'],
+    assets: ['config/.npmrc'],
   },
   npmignore: {
     type: ConfigType.Npm,
-    assets: ['.npmignore'],
+    assets: ['config/.npmignore'],
   },
 }
 

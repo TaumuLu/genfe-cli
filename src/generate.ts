@@ -99,7 +99,7 @@ export default class Generate {
     if (files.size) {
       for (const file of files) {
         const sourcePath = path.resolve(this.cliDir, file)
-        const targetPath = path.resolve(this.dir, file)
+        const targetPath = path.resolve(this.dir, file.replace(/config\//, ''))
         if (existsSync(targetPath)) {
           await this.mergeFile(targetPath, sourcePath)
         } else {
