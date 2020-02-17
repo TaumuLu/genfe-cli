@@ -55,6 +55,10 @@
 - jsconfig.json
 - .editorconfig
 
+### git
+
+- .gitignore
+
 ## 项目清单
 
 - react

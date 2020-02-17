@@ -2,6 +2,7 @@ import chalk from 'chalk'
 import execa from 'execa'
 import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync } from 'fs'
 import path from 'path'
+import ora from 'ora'
 import { conflictReg, labelNames } from './constant'
 
 export default class Generate {
@@ -54,15 +55,25 @@ export default class Generate {
     })
   }
 
-  async exec(command: string) {
+  async exec(command: string, isSpinner = true) {
     const cwd = this.dir
     const [file, ...args] = command.split(' ')
-    // console.log(`exec command: ${command}`)
-    return execa(file, args, { cwd }).then(output => {
-      console.log(output.stdout)
-      console.log(output.stderr)
-      return output
-    })
+    let spinner: ora.Ora
+    if (isSpinner) {
+      spinner = ora(`Installing using ${chalk.green(file)}...`)
+      spinner.start()
+    }
+    return execa(file, args, { cwd })
+      .then(output => {
+        if (isSpinner) spinner.stop()
+        console.log(output.stdout)
+        console.log(output.stderr)
+        return output
+      })
+      .catch(err => {
+        if (isSpinner) spinner.stop()
+        throw err
+      })
   }
 
   async run() {
@@ -137,7 +148,10 @@ export default class Generate {
       return null
     }
     return this.exec(
-      `git merge-file -L ${currentName} -L null -L ${cliName} ${targetPath} /dev/null ${mergePath}`
-    )
+      `git merge-file -L ${currentName} -L null -L ${cliName} ${targetPath} /dev/null ${mergePath}`,
+      false
+    ).catch(() => {
+      console.log(chalk.yellow('conflict file:'), targetPath)
+    })
   }
 }

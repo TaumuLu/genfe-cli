@@ -5,7 +5,8 @@ export interface IDictionary<T = any> {
 export enum ConfigType {
   Module = 'Module',
   Vscode = 'Vscode',
-  Npm = 'Npm'
+  Npm = 'Npm',
+  Git = 'Git',
 }
 
 export interface IConfigs {

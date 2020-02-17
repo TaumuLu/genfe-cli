@@ -31,13 +31,13 @@ const configs = {
     assets: ['.eslintrc.js', '.eslintignore'],
     devDependencies: [
       'eslint',
-      'babel-eslint',
       'eslint-config-airbnb',
       'eslint-plugin-babel',
       'eslint-plugin-import',
       'eslint-plugin-jsx-a11y',
       'eslint-plugin-react',
       'eslint-plugin-react-hooks',
+      'eslint-config-prettier',
       'eslint-plugin-prettier',
       '@typescript-eslint/eslint-plugin',
       '@typescript-eslint/parser',
@@ -81,6 +81,10 @@ const configs = {
   npmignore: {
     type: ConfigType.Npm,
     assets: ['config/.npmignore'],
+  },
+  git: {
+    type: ConfigType.Git,
+    assets: ['.gitignore'],
   },
 }
 
