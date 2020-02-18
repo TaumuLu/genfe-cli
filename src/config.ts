@@ -1,11 +1,6 @@
 import { ConfigType } from './types'
 
 const configs = {
-  typescript: {
-    default: true,
-    assets: ['tsconfig.json'],
-    devDependencies: ['typescript'],
-  },
   husky: {
     default: true,
     assets: ['.huskyrc'],
@@ -25,6 +20,11 @@ const configs = {
     default: true,
     assets: ['.prettierrc'],
     devDependencies: ['prettier'],
+  },
+  typescript: {
+    default: true,
+    assets: ['tsconfig.json'],
+    devDependencies: ['typescript'],
   },
   eslint: {
     default: true,
@@ -76,15 +76,30 @@ const configs = {
   },
   npmrc: {
     type: ConfigType.Npm,
-    assets: ['config/.npmrc'],
+    assets: [
+      {
+        from: 'config/npmrc',
+        to: '.npmrc',
+      },
+    ],
   },
   npmignore: {
     type: ConfigType.Npm,
-    assets: ['config/.npmignore'],
+    assets: [
+      {
+        from: 'config/npmignore',
+        to: '.npmignore',
+      },
+    ],
   },
   git: {
     type: ConfigType.Git,
-    assets: ['config/.gitignore'],
+    assets: [
+      {
+        from: 'config/gitignore',
+        to: '.gitignore',
+      },
+    ],
   },
 }
 

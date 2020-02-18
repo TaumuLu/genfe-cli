@@ -30,7 +30,7 @@
 ### eslint
 
 - .eslintignore
-- .eslintrc.yml
+- .eslintrc.js
 
 ### nodemon
 

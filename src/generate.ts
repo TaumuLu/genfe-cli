@@ -5,6 +5,8 @@ import path from 'path'
 import ora from 'ora'
 import { conflictReg, labelNames } from './constant'
 
+type IAsset = string | { from: string; to: string }
+
 export default class Generate {
   cwd = process.cwd()
 
@@ -18,7 +20,7 @@ export default class Generate {
 
   devDependencies: Set<string> = new Set<string>()
 
-  files: Set<string> = new Set<string>()
+  files: Set<IAsset> = new Set<string>()
 
   folder: string
 
@@ -45,7 +47,7 @@ export default class Generate {
     this.folder = folder
   }
 
-  addFile(file: string) {
+  addFile(file: IAsset) {
     this.files.add(file)
   }
 
@@ -109,8 +111,10 @@ export default class Generate {
 
     if (files.size) {
       for (const file of files) {
-        const sourcePath = path.resolve(this.cliDir, file)
-        const targetPath = path.resolve(this.dir, file.replace(/config\//, ''))
+        const { from, to } =
+          typeof file === 'string' ? { from: file, to: file } : file
+        const sourcePath = path.resolve(this.cliDir, from)
+        const targetPath = path.resolve(this.dir, to)
         if (existsSync(targetPath)) {
           await this.mergeFile(targetPath, sourcePath)
         } else {
