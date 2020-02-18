@@ -66,14 +66,15 @@ export default class Generate {
       spinner.start()
     }
     return execa(file, args, { cwd })
-      .then(output => {
+      .finally(() => {
         if (isSpinner) spinner.stop()
+      })
+      .then(output => {
         console.log(output.stdout)
         console.log(output.stderr)
         return output
       })
       .catch(err => {
-        if (isSpinner) spinner.stop()
         throw err
       })
   }
@@ -125,17 +126,30 @@ export default class Generate {
     }
   }
 
+  async checkPackageJson() {
+    const packageJsonPath = path.resolve(this.dir, 'package.json')
+    if (!existsSync(packageJsonPath)) {
+      console.log(
+        chalk.yellow('No package.json file found, created by default')
+      )
+      await this.exec('npm init -y', false)
+      return false
+    }
+    return true
+  }
+
   async install() {
     const { dependencies, devDependencies } = this
-    // if (!existsSync(this.packagePath)) {
-    //   this.exec('npm init -y')
-    // }
-    if (dependencies.size) {
-      this.exec(`npm i ${[...dependencies].join(' ')}`)
-    }
-    if (devDependencies.size) {
-      this.exec(`npm i ${[...devDependencies].join(' ')} -D`)
-    }
+    const options = ['--save', '--save-dev']
+    return [dependencies, devDependencies].reduce<any>((p, c, i) => {
+      if (c.size) {
+        const option = options[i]
+        return Promise.resolve(p).then(() =>
+          this.exec(`npm i ${[...c].join(' ')} ${option}`)
+        )
+      }
+      return p
+    }, this.checkPackageJson())
   }
 
   async mergeFile(targetPath, mergePath) {
