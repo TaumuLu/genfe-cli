@@ -84,7 +84,7 @@ const configs = {
   },
   git: {
     type: ConfigType.Git,
-    assets: ['.gitignore'],
+    assets: ['config/.gitignore'],
   },
 }
 
