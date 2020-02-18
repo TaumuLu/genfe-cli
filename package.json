@@ -1,6 +1,6 @@
 {
   "name": "genfe-cli",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Front end code generation scaffold",
   "main": "index.js",
   "scripts": {
