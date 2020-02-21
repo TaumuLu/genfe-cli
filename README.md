@@ -65,6 +65,10 @@
 - react-native
 - vue
 
+### react-native
+
+提供了 react-native 的[模板项目](https://github.com/TaumuLu/react-native-template-batty)
+
 ## 合并方式
 
 使用 git-merge-file 三路文件合并命令合并文件

@@ -48,23 +48,6 @@ const program = new Commander.Command()
     generate.run()
   })
 
-// react
-// program
-//   .command('react')
-//   .alias('r')
-//   .description('Create React App')
-//   .option('-m --mode [mode]', 'Add server development configuration', 'redux')
-//   .action(options => {
-//   })
-
-// // react-native
-// program
-//   .command('react-native')
-//   .alias('rn')
-//   .description('Create React Native App')
-//   .action(options => {
-//   })
-
 // help
 // program.on('--help', () => {
 // program.outputHelp
