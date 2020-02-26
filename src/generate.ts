@@ -4,6 +4,7 @@ import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync } from 'fs'
 import path from 'path'
 import ora from 'ora'
 import { conflictReg, labelNames } from './constant'
+import { IOptions } from './config'
 
 type IAsset = string | { from: string; to: string }
 
@@ -79,21 +80,17 @@ export default class Generate {
       })
   }
 
-  async run() {
+  async run(options: IOptions) {
     if (!existsSync(this.dir)) {
       mkdirSync(this.dir)
     } else if (!statSync(this.dir).isDirectory()) {
       throw new Error(`${this.dir}`)
     }
-    // await this.genFolder()
-    await this.genFile()
-    await this.install()
-  }
+    const { install, generate } = options
 
-  // async genFolder() {
-  //   if (this.folder) {
-  //   }
-  // }
+    if (generate) await this.genFile()
+    if (install) await this.install()
+  }
 
   async checkPath(pathStr: string, mkPath?: boolean) {
     const index = pathStr.lastIndexOf('/')

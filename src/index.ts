@@ -1,21 +1,31 @@
 import Commander from 'commander'
 import inquirer from 'inquirer'
 import packageJson from '../package.json'
-import configs, { defaultKeys } from './config'
+import { configs, options, IOptions, IOptionsKeys } from './config'
 import Generate from './generate'
 
 const generate = new Generate()
 
+const defaultKeys = Object.keys(configs).reduce<Array<string>>(
+  (p, k) => (configs[k].default ? p.concat(k) : p),
+  []
+)
+
 const program = new Commander.Command()
+
+Object.keys(options).forEach((key: IOptionsKeys) => {
+  const { flags, description } = options[key]
+  program.option(flags, description)
+})
+
+program
   .name(packageJson.name)
   .version(packageJson.version)
   .usage('[options] command')
   .description('Quickly create front-end projects and configurations')
   .allowUnknownOption()
   .arguments('[project-directory]')
-  .option('-d, --default', 'create default config')
-  .action(async (dir, cmdObj) => {
-    generate.setDir(dir)
+  .action(async (dir, cmdObj: IOptions) => {
     let selectModules = defaultKeys
     if (!cmdObj.default) {
       const choices = Object.keys(configs).map(name => {
@@ -36,30 +46,17 @@ const program = new Commander.Command()
       ]
       const values = await inquirer.prompt(questions)
       const { modules } = values
-      selectModules = modules as any
+      selectModules = modules as string[]
     }
 
+    generate.setDir(dir)
     selectModules.forEach(key => {
       const { assets = [], devDependencies = [] } = configs[key]
       generate.addFiles(assets)
       generate.addDepends(devDependencies)
     })
 
-    generate.run()
+    generate.run(cmdObj)
   })
 
-// help
-// program.on('--help', () => {
-// program.outputHelp
-//   console.log(`
-// Examples:
-//   $ genfe --help
-//   $ genfe -h
-//   `)
-// })
-
 program.parse(process.argv)
-
-// if (!process.argv.slice(2).length) {
-//   program.help()
-// }

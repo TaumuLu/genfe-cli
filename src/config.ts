@@ -1,6 +1,27 @@
 import { ConfigType } from './types'
 
-const configs = {
+export const options = {
+  default: {
+    flags: '-d, --default',
+    description: 'create default config',
+  },
+  install: {
+    flags: '--no-generate',
+    description: 'Do not generate configuration',
+  },
+  generate: {
+    flags: '--no-install',
+    description: 'Do not install dependencies',
+  },
+}
+
+export type IOptionsKeys = keyof typeof options
+
+export type IOptions = {
+  [k in IOptionsKeys]: boolean
+}
+
+export const configs = {
   husky: {
     default: true,
     assets: ['.huskyrc'],
@@ -102,10 +123,3 @@ const configs = {
     ],
   },
 }
-
-export default configs
-
-export const defaultKeys = Object.keys(configs).reduce(
-  (p, k) => (configs[k].default ? p.concat(k) : p),
-  []
-)
