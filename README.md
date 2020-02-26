@@ -5,6 +5,14 @@
 要可以同步本地已有配置，保留自定义改动  
 可以选择性的生成某个配置
 
+## 使用
+
+```
+npx gen-fe [-d|--default]
+           [--no-install]
+           [--no-generator]
+```
+
 ## 配置清单
 
 ### typescript
