@@ -15,57 +15,34 @@ npx gen-fe [-d|--default]
 
 ## 配置清单
 
-### typescript
-
-- tsconfig.json
-
-### husky
-
-- .huskyrc
-
-### lint-staged
-
-- .lintstagedrc
-
-### commitlint
-
-- commitlint.config.js
-
-### prettier
-
-- .prettierrc
-
-### eslint
-
-- .eslintignore
-- .eslintrc.js
-
-### nodemon
-
-- nodemon.json
-
-### babel
-
-- babel.config.js (.babelrc, .babel.js)
-
-### browserslist
-
-- .browserslistrc
-
-### npm
-
-- .npmignore
-- .npmrc
-
-### vscode
-
-- .vscode
-- jsconfig.json
-- .editorconfig
-
-### git
-
-- .gitignore
+- typescript
+  - tsconfig.json
+- husky
+  - .huskyrc
+- lint-staged
+  - .lintstagedrc
+- commitlint
+  - commitlint.config.js
+- prettier
+  - .prettierrc
+- eslint
+  - .eslintignore
+  - .eslintrc.js
+- babel
+  - babel.config.js
+- browserslist
+  - .browserslistrc
+- nodemon
+  - nodemon.json
+- npm
+  - .npmignore
+  - .npmrc
+- vscode
+  - .vscode
+  - jsconfig.json
+  - .editorconfig
+- git
+  - .gitignore
 
 ## 项目清单
 
