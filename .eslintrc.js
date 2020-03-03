@@ -13,8 +13,9 @@ module.exports = {
     browser: true,
     node: true,
     mocha: true,
+    'jest/globals': true,
   },
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'prettier', 'jest'],
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/resolver': {

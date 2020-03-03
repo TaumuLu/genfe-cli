@@ -62,6 +62,7 @@ export const configs = {
       'eslint-plugin-prettier',
       '@typescript-eslint/eslint-plugin',
       '@typescript-eslint/parser',
+      'eslint-plugin-jest',
     ],
   },
   nodemon: {
