@@ -98,12 +98,7 @@ export const configs = {
   },
   npmrc: {
     type: ConfigType.Npm,
-    assets: [
-      {
-        from: 'config/npmrc',
-        to: '.npmrc'
-      }
-    ]
+    assets: ['.npmrc']
   },
   npmignore: {
     type: ConfigType.Npm,
