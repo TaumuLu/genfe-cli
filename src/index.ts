@@ -32,7 +32,7 @@ program
         const { default: checked } = configs[name]
         return {
           name,
-          checked,
+          checked
         }
       })
       const questions = [
@@ -41,8 +41,8 @@ program
           message: 'select generate modules',
           type: 'checkbox',
           choices,
-          pageSize: process.stdout.rows - 2,
-        },
+          pageSize: process.stdout.rows - 2
+        }
       ]
       const values = await inquirer.prompt(questions)
       const { modules } = values

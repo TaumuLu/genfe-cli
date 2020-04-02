@@ -18,7 +18,9 @@ gradlew.bat
 
 # Folder
 demo/
+doc/
 docs/
+example/
 examples/
 src/
 backup/

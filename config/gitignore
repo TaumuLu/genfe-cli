@@ -65,6 +65,13 @@ typings/
 
 ####################################
 
+# rn
+.project
+.vscode/
+.idea/
+.gradle/
+.settings/
+
 # custom
 lib/
 build/

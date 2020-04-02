@@ -6,7 +6,7 @@ export enum ConfigType {
   Module = 'Module',
   Vscode = 'Vscode',
   Npm = 'Npm',
-  Git = 'Git',
+  Git = 'Git'
 }
 
 export interface IConfigs {

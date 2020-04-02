@@ -3,16 +3,16 @@ import { ConfigType } from './types'
 export const options = {
   default: {
     flags: '-d, --default',
-    description: 'create default config',
+    description: 'create default config'
   },
   install: {
     flags: '--no-generate',
-    description: 'Do not generate configuration',
+    description: 'Do not generate configuration'
   },
   generate: {
     flags: '--no-install',
-    description: 'Do not install dependencies',
-  },
+    description: 'Do not install dependencies'
+  }
 }
 
 export type IOptionsKeys = keyof typeof options
@@ -25,27 +25,27 @@ export const configs = {
   husky: {
     default: true,
     assets: ['.huskyrc'],
-    devDependencies: ['husky'],
+    devDependencies: ['husky']
   },
   lintStaged: {
     default: true,
     assets: ['.lintstagedrc'],
-    devDependencies: ['lint-staged'],
+    devDependencies: ['lint-staged']
   },
   commitlint: {
     default: true,
     assets: ['commitlint.config.js'],
-    devDependencies: ['@commitlint/cli', '@commitlint/config-conventional'],
+    devDependencies: ['@commitlint/cli', '@commitlint/config-conventional']
   },
   prettier: {
     default: true,
     assets: ['.prettierrc'],
-    devDependencies: ['prettier'],
+    devDependencies: ['prettier']
   },
   typescript: {
     default: true,
     assets: ['tsconfig.json'],
-    devDependencies: ['typescript'],
+    devDependencies: ['typescript']
   },
   eslint: {
     default: true,
@@ -62,12 +62,12 @@ export const configs = {
       'eslint-plugin-prettier',
       '@typescript-eslint/eslint-plugin',
       '@typescript-eslint/parser',
-      'eslint-plugin-jest',
-    ],
+      'eslint-plugin-jest'
+    ]
   },
   nodemon: {
     assets: ['nodemon.json'],
-    devDependencies: ['nodemon'],
+    devDependencies: ['nodemon']
   },
   babel: {
     assets: ['babel.config.js'],
@@ -78,49 +78,49 @@ export const configs = {
       '@babel/preset-typescript',
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-decorators',
-      '@babel/plugin-transform-runtime',
-    ],
+      '@babel/plugin-transform-runtime'
+    ]
   },
   browserslist: {
-    assets: ['.browserslistrc'],
+    assets: ['.browserslistrc']
   },
   settings: {
     type: ConfigType.Vscode,
-    assets: ['.vscode/settings.json'],
+    assets: ['.vscode/settings.json']
   },
   jsconfig: {
     type: ConfigType.Vscode,
-    assets: ['jsconfig.json'],
+    assets: ['jsconfig.json']
   },
   editorconfig: {
     type: ConfigType.Vscode,
-    assets: ['.editorconfig'],
+    assets: ['.editorconfig']
   },
   npmrc: {
     type: ConfigType.Npm,
     assets: [
       {
         from: 'config/npmrc',
-        to: '.npmrc',
-      },
-    ],
+        to: '.npmrc'
+      }
+    ]
   },
   npmignore: {
     type: ConfigType.Npm,
     assets: [
       {
         from: 'config/npmignore',
-        to: '.npmignore',
-      },
-    ],
+        to: '.npmignore'
+      }
+    ]
   },
   git: {
     type: ConfigType.Git,
     assets: [
       {
         from: 'config/gitignore',
-        to: '.gitignore',
-      },
-    ],
-  },
+        to: '.gitignore'
+      }
+    ]
+  }
 }

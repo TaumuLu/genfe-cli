@@ -6,23 +6,23 @@ module.exports = {
     'plugin:prettier/recommended',
     'prettier',
     'prettier/react',
-    'prettier/@typescript-eslint',
+    'prettier/@typescript-eslint'
   ],
   env: {
     es6: true,
     browser: true,
     node: true,
     mocha: true,
-    'jest/globals': true,
+    'jest/globals': true
   },
   plugins: ['@typescript-eslint', 'prettier', 'jest'],
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-    },
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+      }
+    }
   },
   rules: {
     'react/jsx-filename-extension': 0,
@@ -46,8 +46,8 @@ module.exports = {
         mjs: 'never',
         jsx: 'never',
         ts: 'never',
-        tsx: 'never',
-      },
-    ],
-  },
+        tsx: 'never'
+      }
+    ]
+  }
 }
