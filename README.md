@@ -32,8 +32,6 @@ npx gen-fe [-d|--default]
   - babel.config.js
 - browserslist
   - .browserslistrc
-- nodemon
-  - nodemon.json
 - npm
   - .npmignore
   - .npmrc

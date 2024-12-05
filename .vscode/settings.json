@@ -3,7 +3,6 @@
   "window.zoomLevel": 0,
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
-  "editor.renderIndentGuides": true,
   "editor.minimap.showSlider": "always",
   "editor.suggestSelection": "first",
   "editor.minimap.enabled": true,
@@ -19,10 +18,9 @@
   },
   "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?（，：；。？）",
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.fixAll.eslint": true
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit"
   },
-  "workbench.activityBar.visible": true,
   "problems.decorations.enabled": true,
   "explorer.confirmDelete": false,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -64,5 +62,6 @@
     "typescript",
     "typescriptreact",
     "vue"
-  ]
+  ],
+  "editor.guides.indentation": true
 }

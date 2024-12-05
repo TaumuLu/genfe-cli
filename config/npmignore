@@ -58,6 +58,3 @@ jsconfig.json
 
 # typesscript
 tsconfig.json
-
-# nodemon
-nodemon.json

@@ -65,10 +65,6 @@ export const configs = {
       'eslint-plugin-jest'
     ]
   },
-  nodemon: {
-    assets: ['nodemon.json'],
-    devDependencies: ['nodemon']
-  },
   babel: {
     assets: ['babel.config.js'],
     devDependencies: [
