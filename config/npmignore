@@ -1,13 +1,13 @@
-# ide配置
+# ide config
 .vscode
 .idea
 .gradle
 .settings
 
-# 文件
+# file
 *.gif
 
-# 日志
+# log
 npm-debug.log
 
 # android

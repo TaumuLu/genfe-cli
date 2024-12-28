@@ -51,10 +51,6 @@
     "*.huskyrc": "json",
     "*.lintstagedrc": "json"
   },
-  "typescript.updateImportsOnFileMove.enabled": "never",
-  "javascript.updateImportsOnFileMove.enabled": "never",
-  "javascript.implicitProjectConfig.experimentalDecorators": true,
-  // PLUGIN
   // eslint
   "eslint.validate": [
     "javascript",
